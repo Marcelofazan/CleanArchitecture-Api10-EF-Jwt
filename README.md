@@ -5,6 +5,7 @@ Exemplo de criação de API em Clean Architecture com Autorização utilizando J
 
 | Tecnologia | Descrição |
 |-----------|-----------|
+| **Clean Architecture** | Organização do código em camadas, mantendo (as regras de negócio) totalmente independentes |
 | **JWT** | Implementação de autenticação e autorização em WebAPI |
 | **Service** | Separação da criação de objetos e de sua reutilização, ideal para a realização de testes unitários |
 
