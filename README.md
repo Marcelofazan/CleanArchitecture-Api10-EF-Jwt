@@ -1,5 +1,5 @@
 ## 🚀 Api10-EF-Jwt
-Exemplo de Clean Architecture API com Autorização JWT em C# .NET 10 com banco de dados SQLite.
+Exemplo de aplicativo Clean Architecture com Autorização JWT em C# .NET 10 com banco de dados SQLite.
 
 #### 📋 O que você vai encontrar neste projeto
 
