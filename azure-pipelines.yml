@@ -4,59 +4,15 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
-variables:
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
-
 steps:
 - task: NuGetToolInstaller@1
-
-# ==========================================
-# 1. PROCESSANDO A API (Api10-EF-Jwt)
-# ==========================================
 - task: NuGetCommand@2
-  displayName: 'Restore NuGet - API'
+  displayName: 'Restore NuGet'
   inputs:
-    restoreSolution: 'Api10-EF-Jwt/**/*.sln'
-
+    restoreSolution: '**/*.sln'
 - task: VSBuild@1
-  displayName: 'Build - API'
+  displayName: 'Build'
   inputs:
-    solution: 'Api10-EF-Jwt/**/*.sln'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)/API"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-# ==========================================
-# 2. PROCESSANDO O FRONT-END (Razor-Consumir-Api-Jwt)
-# ==========================================
-- task: NuGetCommand@2
-  displayName: 'Restore NuGet - FrontEnd'
-  inputs:
-    restoreSolution: 'Razor-Consumir-Api-Jwt/**/*.sln'
-
-- task: VSBuild@1
-  displayName: 'Build - FrontEnd'
-  inputs:
-    solution: 'Razor-Consumir-Api-Jwt/**/*.sln'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)/FrontEnd"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-# ==========================================
-# 3. TESTES E PUBLICAÇÃO
-# ==========================================
-- task: VSTest@2
-  displayName: 'Executar Testes'
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-# Publica os arquivos gerados para que você possa usá-los no Release
-- task: PublishBuildArtifacts@1
-  displayName: 'Publicar Artefatos'
-  inputs:
-    PathtoPublish: '$(build.artifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-Use o c
+    solution: '**/*.sln'
+    platform: 'Any CPU'
+    configuration: 'Release'
