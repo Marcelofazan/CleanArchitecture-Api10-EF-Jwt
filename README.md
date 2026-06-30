@@ -89,7 +89,7 @@ Metodo: GET/POST /api/Produtos             Função: Listar / Criar produtos    
 Metodo: GET/PUT/DELETE /api/Produtos/{id}  Função: Obter / Atualizar / Excluir produto  JWT: Sim
 ```
 
-#### 🧪 Executar Testes Unitários (Developer PowerShell)
+#### 🔍 Executar Testes Unitários (Developer PowerShell)
 ```bash
 dotnet test SistemaERPOnlineForcaDeVendasAPI.Testes/SistemaERPOnlineForcaDeVendasAPI.Testes.csproj
 ```
